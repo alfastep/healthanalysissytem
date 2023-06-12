@@ -53,7 +53,6 @@ public class FileManager {
                     String [] result = splitEntry[0].split(",");
                     String foodName = result[0].replaceAll("\\{", "");
                     int calories = Integer.parseInt(result[1]);
-                    System.out.println(result[2]);
                     LocalDate date = LocalDate.parse(result[2].replaceAll("}", ""));
                     CalorieEntry calorieEntry = new CalorieEntry(foodName, calories, date);
 
@@ -101,5 +100,7 @@ public class FileManager {
             e.printStackTrace();
         }
     }
+
+
 
 }

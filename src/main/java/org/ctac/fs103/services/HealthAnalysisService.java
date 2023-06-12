@@ -2,6 +2,7 @@ package org.ctac.fs103.services;
 
 import org.ctac.fs103.models.CalorieEntry;
 import org.ctac.fs103.models.ExerciseEntry;
+import org.ctac.fs103.models.SleepEntry;
 import org.ctac.fs103.models.User;
 
 import java.time.LocalDate;
@@ -58,6 +59,20 @@ public class HealthAnalysisService {
 
     }
 
+    public void averageHoursOfSleep(LocalDate day) {
+        LocalDate startDate = day.minusDays(7);
+
+        long total = 0;
+
+        for (SleepEntry entry : user.getSleepEntries()) {
+            if (entry.getDate().isAfter(startDate) && !entry.getDate().isAfter(day)) {
+                total += entry.getHoursSlept();
+            }
+        }
+
+        System.out.println("Average hours slept in past week is " + total);
+    }
+
     public void promptDate() {
         System.out.print("Enter a date (yyyy-MM-dd): ");
         String input = scanner.nextLine();
@@ -65,6 +80,26 @@ public class HealthAnalysisService {
         LocalDate date = LocalDate.parse(input);
 
         caloricBalance(date);
+    }
+
+    public void promptSleep() {
+        System.out.print("Enter a date (yyyy-MM-dd): ");
+        String input = scanner.nextLine();
+
+        LocalDate date = LocalDate.parse(input);
+
+        averageHoursOfSleep(date);
+    }
+
+    public void displayExercises() {
+        for (ExerciseEntry entry : user.getExerciseEntries()) {
+            System.out.println("Exercise: " + entry.getExercise());
+            System.out.println("Duration: " + entry.getDuration());
+            System.out.println("Calories Burned: " + entry.getCaloriesBurned());
+            System.out.println("Category: " + entry.getCategory());
+            System.out.println("Date: " + entry.getDate());
+            System.out.println();
+        }
     }
 
 
@@ -88,7 +123,8 @@ public class HealthAnalysisService {
 
                 switch (choice) {
                     case 1 -> promptDate();
-//                    case 2 -> showEntries();
+                    case 2 -> promptSleep();
+                    case 3 -> displayExercises();
                     case 0 -> System.out.println("Exiting...");
                     default -> System.out.println("Invalid choice. Please try again.");
                 }

@@ -22,7 +22,7 @@ public class UserService {
         User user1 = new User("stevo6895");
         User user2 = new User("alfastep");
 
-        user1.getCalorieEntries().add(new CalorieEntry("pizza", 350, LocalDate.of(2023, 6, 10)));
+        user1.getCalorieEntries().add(new CalorieEntry("pizza", 700, LocalDate.of(2023, 6, 10)));
         user1.getCalorieEntries().add(new CalorieEntry("apple", 50, LocalDate.of(2023, 6, 10)));
         user1.getCalorieEntries().add(new CalorieEntry("oatmeal", 115, LocalDate.of(2023, 6, 10)));
 

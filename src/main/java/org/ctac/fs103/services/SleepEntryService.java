@@ -82,7 +82,6 @@ public class SleepEntryService {
         LocalTime endTime = promptEndTime();
 
         SleepEntry sleepEntry = new SleepEntry(startTime, endTime, LocalDate.now());
-        sleepEntry.calculateHoursSlept();
         addEntry(sleepEntry);
 
     }

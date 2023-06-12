@@ -13,7 +13,15 @@ public class SleepEntry {
     public SleepEntry(LocalTime startTime, LocalTime endTime, LocalDate date) {
         this.startTime = startTime;
         this.endTime = endTime;
-        this.hoursSlept = 0;
+
+        Duration duration = Duration.between(startTime, endTime);
+
+        if (startTime.isAfter(endTime)) {
+            this.hoursSlept = duration.toHours() + 24;
+        } else {
+            this.hoursSlept = duration.toHours();
+        }
+
         this.date = date;
     }
 
@@ -29,22 +37,25 @@ public class SleepEntry {
         return hoursSlept;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
 
     public void setHoursSlept(long hoursSlept) {
         this.hoursSlept = hoursSlept;
     }
 
-    public long calculateHoursSlept() {
-        Duration duration = Duration.between(startTime, endTime);
-
-        if (startTime.isAfter(endTime)) {
-            setHoursSlept(duration.toHours() + 24);
-        } else {
-            setHoursSlept(duration.toHours());
-        }
-
-        return getHoursSlept();
-    }
+//    public long calculateHoursSlept() {
+//        Duration duration = Duration.between(startTime, endTime);
+//
+//        if (startTime.isAfter(endTime)) {
+//            setHoursSlept(duration.toHours() + 24);
+//        } else {
+//            setHoursSlept(duration.toHours());
+//        }
+//
+//        return getHoursSlept();
+//    }
 
     @Override
     public String toString() {
