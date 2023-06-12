@@ -1,0 +1,2 @@
+stevo6895,[{pizza,350,2023-06-10}, {apple,50,2023-06-10}, {oatmeal,115,2023-06-10}],[{running,60,200,cardio,2023-06-10}, {bench press,20,50,strength training,2023-06-10}, {squats,10,40,strength training,2023-06-10}],[{23:00,06:00,0,2023-06-10}, {23:00,04:00,5,2023-06-12}]
+alfastep,[{hamburger,550,2023-06-11}, {granola bar,50,2023-06-11}, {spaghetti,400,2023-06-11}],[{running,60,200,cardio,2023-06-11}, {bicep curls,20,50,strength training,2023-06-11}, {dumbbell fly,10,40,strength training,2023-06-11}],[{22:00,06:00,0,2023-06-11}]
